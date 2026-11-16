@@ -119,6 +119,6 @@ export default {
     if (request.method !== 'GET' && request.method !== 'HEAD') return json({ error: 'Method not allowed' }, 405);
     const file = path === '/' ? 'index.html' : path.slice(1);
     if (!Object.hasOwn(ASSETS, file)) return json({ error: 'Not found' }, 404);
-    return new Response(request.method === 'HEAD' ? null : ASSETS[file], { headers: { 'Content-Type': ({ 'index.html': 'text/html; charset=utf-8', 'app.js': 'text/javascript; charset=utf-8', 'manifest.webmanifest': 'application/manifest+json' })[file], 'X-Content-Type-Options': 'nosniff' } });
+    return new Response(request.method === 'HEAD' ? null : ASSETS[file], { headers: { 'Content-Type': ({ 'index.html': 'text/html; charset=utf-8', 'app.js': 'text/javascript; charset=utf-8', 'i18n.js': 'text/javascript; charset=utf-8', 'manifest.webmanifest': 'application/manifest+json' })[file], 'X-Content-Type-Options': 'nosniff' } });
   }
 };
